@@ -50,6 +50,5 @@ int main(){
     myArray marks(&marks,total_size,used_size);
     marks.insertElements(&marks);
     marks.displayArray(&marks);
-
     return 0;
 }
