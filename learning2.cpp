@@ -1,8 +1,8 @@
 #include<iostream>
 using namespace std;
-int used_size=0;
-//arr ={10,20,30,40,50} usize=5
 void display(int arr[],int n);
+
+//FUNCTION TO INSERT ELEMENT IN THE ARRAY
 void insertion1(int arr[],int n)
 {
     int element;
@@ -21,7 +21,8 @@ void insertion1(int arr[],int n)
     display(arr,n);
     }
 }
-                        
+
+//FUNCTION TO INSERT AT SPECIFIC INDEX                       
 void insertion2(int arr[],int uSize,int tSize,int index,int ele)
 {
 
@@ -35,13 +36,13 @@ void insertion2(int arr[],int uSize,int tSize,int index,int ele)
         arr[i+1]=arr[i];
     }
     arr[index]=ele;
-    uSize++;
+    uSize++;//6
     display(arr,uSize);
     cout<<endl;
     cout<<"Used size: "<<uSize<<endl;
-
 }
 
+//FUNCTION TO DELETE ARRAY ELEMENTS
 void deletion(int arr[],int tSize,int uSize,int index)
 {
     if(index>=tSize)
@@ -55,25 +56,18 @@ void deletion(int arr[],int tSize,int uSize,int index)
     }
     else
     {
-        //     0  1  2  3  4
-        //arr={28,10,89,78,90}
-        //      i=4    4<5
         for(int i=index;i<=uSize-1;i++)
         {
-            //arr[0]=10
-            //arr[i]=89
-            //arr[2]=78
-            //arr[3]=90
-            //arr[4]=
             arr[i]=arr[i+1];
         }
         uSize--;
         display(arr,uSize);
-        cout<<uSize<<endl;
+        cout<<endl;
+        cout<<"Used Sized is:"<<uSize<<endl;
     }
 }
-//arr={20,30,40,50} usize=4;
 
+//FUNCTION TO DISPLAY ARRAY
 void display(int arr[],int n)
 {
     cout<<"Elements of array are:"<<endl;
@@ -82,8 +76,9 @@ void display(int arr[],int n)
         cout<<arr[i]<<" ";
     }
 }
+
 int main(){
-    int total_size,ch,element,index,ch1;
+    int total_size,used_size,ch,element,index,ch1;
     cout<<"Enter Total size of an array"<<endl;
     cin>>total_size;
     cout<<"Enter how much blocks you want to use from the array"<<endl;
@@ -104,23 +99,20 @@ int main(){
         cin>>index;
         cout<<"Enter element to be inserted at index "<<index<<endl;
         cin>>element;
-        insertion2(arr,used_size,total_size,index,element);//insertion at specific index
-        // used_size++;
-        // display(arr,used_size);
+        insertion2(arr,used_size,total_size,index,element);
+        used_size++;
         break;
 
         case 2:
         cout<<"Enter index of element to be deleted"<<endl;
         cin>>index;
         deletion(arr,total_size,used_size,index);
-        // used_size--;
-        // display(arr,used_size);
+        used_size--;
         break;
         default:
         cout<<"Enter Correct choice"<<endl;
         break;
     }
-    cout<<endl;
     cout<<"Do you want to continue (1:Yes/0:No)"<<endl;
     cin>>ch1;
     }while(ch1==1);
