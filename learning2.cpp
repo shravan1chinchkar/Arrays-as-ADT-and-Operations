@@ -132,7 +132,7 @@ int main()
     Formula to find size of array
     sizeof(array_name)/sizeof(array_datatype)
     */
-    int total_size, used_size, ch, element, index, ch1,ans;
+    int total_size, used_size, ch, element, index, ch1, ans;
     cout << "Enter Total size of an array" << endl;
     cin >> total_size;
     cout << "Enter how much blocks you want to use from the array" << endl;
@@ -143,6 +143,7 @@ int main()
 
     do
     {
+        cout << "--------------------Menu-----------------------------"<<endl;
         cout << "1: Insertion of element at specified in array" << endl;
         cout << "2: Deletion  of element from array" << endl;
         cout << "3:Search an element in the array using Linear search" << endl;
@@ -150,6 +151,7 @@ int main()
         cout << "4:To search elements in sorted array using binary Search\n"
                 "(WARNING -->FOR THIS THE ARRAY MUST BE SORTED)"
              << endl;
+        cout << "--------------------Menu Ends---------------------------"<<endl;
         cout << "Enter your choice" << endl;
         cin >> ch;
         switch (ch)
