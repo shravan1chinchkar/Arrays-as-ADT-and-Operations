@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 //Array as an ADT
+//Creating Array in Heap section
 class myArray
 {
     int arr_size;
