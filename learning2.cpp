@@ -76,7 +76,6 @@ void display(int arr[],int n)
         cout<<arr[i]<<" ";
     }
 }
-
 int main(){
     int total_size,used_size,ch,element,index,ch1;
     cout<<"Enter Total size of an array"<<endl;
