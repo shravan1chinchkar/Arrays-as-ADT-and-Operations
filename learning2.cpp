@@ -68,6 +68,29 @@ void deletion(int arr[], int tSize, int uSize, int index)
     }
 }
 
+// linear Searching
+void linearSearch(int arr[], int uSize, int element)
+{
+    int flag = 0;
+    int i;
+    for (i = 0; i < uSize; i++)
+    {
+        if (arr[i] == element)
+        {
+            flag = 1;
+            break;
+        }
+    }
+    if (flag == 1)
+    {
+        cout << element << " element found at index " << i << endl;
+    }
+    else
+    {
+        cout << element << " is not present in the array" << endl;
+    }
+}
+
 // FUNCTION TO DISPLAY ARRAY
 void display(int arr[], int n)
 {
@@ -93,6 +116,7 @@ int main()
     {
         cout << "1: Insertion of element at specified in array" << endl;
         cout << "2: Deletion  of element from array" << endl;
+        cout << "3:Search an element in the array using Linear search" << endl;
         cout << "Enter your choice" << endl;
         cin >> ch;
         switch (ch)
@@ -111,6 +135,12 @@ int main()
             cin >> index;
             deletion(arr, total_size, used_size, index);
             used_size--;
+            break;
+
+        case 3:
+            cout << "Enter element to search: " << endl;
+            cin >> element;
+            linearSearch(arr, used_size, element);
             break;
 
         default:
