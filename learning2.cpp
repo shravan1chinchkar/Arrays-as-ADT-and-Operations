@@ -91,6 +91,31 @@ void linearSearch(int arr[], int uSize, int element)
     }
 }
 
+// Binary Search
+int binarySearch(int arr[], int uSize, int element)
+{
+    int mid, high, low;
+    low = 0;
+    high = uSize - 1;
+    while (low <= high)
+    {
+        mid = (low + high) / 2;
+        if (arr[mid] == element)
+        {
+            return mid;
+        }
+        if (arr[mid] < element)
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+        }
+    }
+    return -1;
+}
+
 // FUNCTION TO DISPLAY ARRAY
 void display(int arr[], int n)
 {
@@ -100,15 +125,19 @@ void display(int arr[], int n)
         cout << arr[i] << " ";
     }
 }
+
 int main()
 {
-    int total_size, used_size, ch, element, index, ch1;
-
+    /*
+    Formula to find size of array
+    sizeof(array_name)/sizeof(array_datatype)
+    */
+    int total_size, used_size, ch, element, index, ch1,ans;
     cout << "Enter Total size of an array" << endl;
     cin >> total_size;
     cout << "Enter how much blocks you want to use from the array" << endl;
     cin >> used_size;
-    int arr[total_size];
+    int arr[total_size] = {10, 20, 30, 40, 50};
     insertion1(arr, used_size);
     cout << endl;
 
@@ -117,6 +146,10 @@ int main()
         cout << "1: Insertion of element at specified in array" << endl;
         cout << "2: Deletion  of element from array" << endl;
         cout << "3:Search an element in the array using Linear search" << endl;
+        cout << "3:Search an element in the array using Linear search" << endl;
+        cout << "4:To search elements in sorted array using binary Search\n"
+                "(WARNING -->FOR THIS THE ARRAY MUST BE SORTED)"
+             << endl;
         cout << "Enter your choice" << endl;
         cin >> ch;
         switch (ch)
@@ -141,6 +174,13 @@ int main()
             cout << "Enter element to search: " << endl;
             cin >> element;
             linearSearch(arr, used_size, element);
+            break;
+
+        case 4:
+            cout << "Enter element to search: " << endl;
+            cin >> element;
+            ans = binarySearch(arr, used_size, element);
+            cout << element << " is present at index " << ans << endl;
             break;
 
         default:
