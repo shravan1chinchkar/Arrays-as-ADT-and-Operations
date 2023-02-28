@@ -136,7 +136,7 @@ int main()
     struct Node *head;
     // Created object of class
     Linked_list ll;
-    int n, ch1,ch2;
+    int n, ch1;
     cout << "Enter Number of nodes you want in the Linked List" << endl;
     cin >> n;
     head = ll.createLinkedlist(head, n);
@@ -178,9 +178,7 @@ int main()
                 cout<<"Please enter correct choice:"<<endl;
                 break;
             }
-            cout<<"Do you want to continue (1:Yes/2:No): "<<endl;
-            cin>>ch2;
-    }while(ch2!=2);
+    }while(true);
 
     return 0;
 }
