@@ -72,7 +72,7 @@ public:
         struct Node *p = a;
         cout<<"Enter index where the data is to be inserted :"<<endl;
         cin>>index;
-        cout << "Enter data in node at" << index << "th index: " << endl;
+        cout << "Enter data in node at " << index << "th index: " << endl;
         cin >> data;
         newNode->data = data;
         while (i < index-1)//index-1 because our node index starts from 0 not from 1
