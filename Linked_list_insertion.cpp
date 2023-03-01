@@ -17,7 +17,7 @@ class Linked_list
 {
 public:
     //Creating node dynamically by excepting information about Linked List from user  
-    struct Node *createLinkedlist(struct Node *a, int n)
+    struct Node *createLinkedlist(int n)
     {
         struct Node *head1;       // start node
         struct Node *headAddress; // pointer that moves throughout the Linked List
@@ -133,13 +133,13 @@ public:
 int main()
 {
     // Created object for Structure
-    struct Node *head;
+    // struct Node *head;
     // Created object of class
     Linked_list ll;
     int n, ch1;
     cout << "Enter Number of nodes you want in the Linked List" << endl;
     cin >> n;
-    head = ll.createLinkedlist(head, n);
+    struct Node  *head = ll.createLinkedlist(n);
     ll.display_Linked_List(head);
     do
     {
