@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+//singly linked list
 //Linked List dynamic creation and display
 int count = 0,data;
 struct Node

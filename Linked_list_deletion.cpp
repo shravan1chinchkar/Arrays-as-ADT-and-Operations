@@ -1,4 +1,5 @@
 /*
+Singly Linked List
 In linked List there are 4 cases of deletion
 1] Deletion node at begning o(1)
 2] Deletion node at middle o(n)
@@ -13,7 +14,6 @@ struct Node
     int data;
     struct Node *next;
 };
-
 class Linked_list
 {
 public:
@@ -85,7 +85,6 @@ public:
         display_Linked_list(a);
         return a;
     }
-
 
     // Deleting node in between                            1
     struct Node *deleting_Between_Node(struct Node *a, int index)
