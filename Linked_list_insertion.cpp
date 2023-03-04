@@ -8,7 +8,7 @@ In linked List there are 4 cases of insertion
 */
 #include <iostream>
 using namespace std;
-int count = 0,data;
+int count = 0, data;
 struct Node
 {
     int data;
@@ -17,13 +17,13 @@ struct Node
 class Linked_list
 {
 public:
-    //Creating node dynamically by excepting information about Linked List from user  
+    // Creating node dynamically by excepting information about Linked List from user
     struct Node *createLinkedlist(int n)
     {
         struct Node *head1;       // start node
         struct Node *headAddress; // pointer that moves throughout the Linked List
         int nodeCount = 1;
-        //int data;
+        // int data;
         head1 = new struct Node;
         cout << "Enter data in " << count << "th node" << endl;
         cin >> data;
@@ -56,7 +56,7 @@ public:
     //  Insert Node at the begning
     struct Node *insert_in_Beginning(struct Node *a)
     {
-        //int data;
+        // int data;
         struct Node *newNode = new struct Node; // allocates memory in heap section
         cout << "Enter data to be inserted in node: " << endl;
         cin >> data;
@@ -67,16 +67,16 @@ public:
     // insert in between
     struct Node *insert_in_Between(struct Node *a)
     {
-        //int data;
-        int i=0,index;
+        // int data;
+        int i = 0, index;
         struct Node *newNode = new struct Node;
         struct Node *p = a;
-        cout<<"Enter index where the data is to be inserted :"<<endl;
-        cin>>index;
+        cout << "Enter index where the data is to be inserted :" << endl;
+        cin >> index;
         cout << "Enter data in node at " << index << "th index: " << endl;
         cin >> data;
         newNode->data = data;
-        while (i < index-1)//index-1 because our node index starts from 0 not from 1
+        while (i < index - 1) // index-1 because our node index starts from 0 not from 1
         {
             p = p->next;
             i++;
@@ -85,33 +85,33 @@ public:
         p->next = newNode;
         return a;
     }
-    //insert at the end
+    // insert at the end
     struct Node *insert_in_end(struct Node *a)
     {
-        //int data;
-        struct Node *newNode=new struct Node;
-        struct Node *p=a;
-        cout<<"Enter data to be inserted in the node :"<<endl;
-        cin>>data;
-        while(p->next!=NULL)
+        // int data;
+        struct Node *newNode = new struct Node;
+        struct Node *p = a;
+        cout << "Enter data to be inserted in the node :" << endl;
+        cin >> data;
+        while (p->next != NULL)
         {
-            p=p->next;
+            p = p->next;
         }
-        newNode->data=data;
-        newNode->next=NULL;
-        p->next=newNode;
+        newNode->data = data;
+        newNode->next = NULL;
+        p->next = newNode;
         return a;
     }
-    //Inserting node after specific node
+    // Inserting node after specific node
     struct Node *insertion_After_Node(struct Node *a)
     {
-        //int data;
-        struct Node *newNode=new struct Node;
-        cout<<"Enter data to be inserted in the node: "<<endl;
-        cin>>data;
-        newNode->data=data;
-        newNode->next=a->next;
-        a->next=newNode;
+        // int data;
+        struct Node *newNode = new struct Node;
+        cout << "Enter data to be inserted in the node: " << endl;
+        cin >> data;
+        newNode->data = data;
+        newNode->next = a->next;
+        a->next = newNode;
         return a;
     }
     // Prints the linked List
@@ -120,7 +120,7 @@ public:
         int counter = 0;
         while (a != NULL)
         {
-            cout<<endl;
+            cout << endl;
             cout << "Element :" << a->data << endl;
             cout << "Address of its successive node :" << a->next << endl;
             cout << "Address of present " << counter << "th node is:" << a << endl;
@@ -140,7 +140,7 @@ int main()
     int n, ch1;
     cout << "Enter Number of nodes you want in the Singly Linked List" << endl;
     cin >> n;
-    struct Node  *head = ll.createLinkedlist(n);
+    struct Node *head = ll.createLinkedlist(n);
     ll.display_Linked_List(head);
     do
     {
@@ -154,32 +154,32 @@ int main()
         cout << "Enter Your Choice" << endl;
         cin >> ch1;
 
-            switch (ch1)
-            {
-            case 1:
-                head = ll.insert_in_Beginning(head);
-                ll.display_Linked_List(head);
-                break;
-            case 2:
-                head = ll.insert_in_Between(head);
-                ll.display_Linked_List(head);
-                break;
-            case 3:
-                head=ll.insert_in_end(head);
-                ll.display_Linked_List(head);
-                break;
-            case 4:
-                head=ll.insertion_After_Node(head);
-                ll.display_Linked_List(head);
-                break;
-            case 5:
-                exit(0);
-                break;
-            default:
-                cout<<"Please enter correct choice:"<<endl;
-                break;
-            }
-    }while(true);
+        switch (ch1)
+        {
+        case 1:
+            head = ll.insert_in_Beginning(head);
+            ll.display_Linked_List(head);
+            break;
+        case 2:
+            head = ll.insert_in_Between(head);
+            ll.display_Linked_List(head);
+            break;
+        case 3:
+            head = ll.insert_in_end(head);
+            ll.display_Linked_List(head);
+            break;
+        case 4:
+            head = ll.insertion_After_Node(head);
+            ll.display_Linked_List(head);
+            break;
+        case 5:
+            exit(0);
+            break;
+        default:
+            cout << "Please enter correct choice:" << endl;
+            break;
+        }
+    } while (true);
 
     return 0;
 }

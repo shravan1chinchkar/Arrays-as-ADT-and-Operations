@@ -80,7 +80,7 @@ public:
         }
         a = p->next;
         delete p;
-        //return a;
+        // return a;
         cout << "Linked List after deleting 1st node: " << endl;
         display_Linked_list(a);
         return a;
@@ -108,7 +108,7 @@ public:
         display_Linked_list(a);
         return a;
     }
-    
+
     // Deleting last node;
     struct Node *deleting_last_node(struct Node *a)
     {
@@ -129,9 +129,9 @@ public:
     struct Node *deleting_Node_Of_Specified_Data(struct Node *a, int data1)
     {
         struct Node *ptr1, *ptr2;
-        if(a==NULL)
+        if (a == NULL)
         {
-            cout<<"Linked list underflow"<<endl;
+            cout << "Linked list underflow" << endl;
             return a;
         }
         ptr1 = a;
@@ -162,7 +162,7 @@ public:
         cout << "Linked list after deleting node which contain " << data1 << " Element" << endl;
         display_Linked_list(a);
         return a;
-    }  
+    }
 };
 int main()
 {
@@ -222,4 +222,3 @@ int main()
     } while (true);
     return 0;
 }
-

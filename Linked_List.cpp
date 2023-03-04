@@ -1,8 +1,8 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-//singly linked list
-//Linked List dynamic creation and display
-int count = 0,data;
+// singly linked list
+// Linked List dynamic creation and display
+int count = 0, data;
 struct Node
 {
     int data;
@@ -10,14 +10,14 @@ struct Node
 };
 class Linked_List
 {
-    public:
-    //Creating node dynamically by excepting information about Linked List from user  
+public:
+    // Creating node dynamically by excepting information about Linked List from user
     struct Node *createLinkedlist(struct Node *a, int n)
     {
         struct Node *head1;       // start node
         struct Node *headAddress; // pointer that moves throughout the Linked List
         int nodeCount = 1;
-        //int data;
+        // int data;
         head1 = new struct Node;
         cout << "Enter data in " << count << "th node" << endl;
         cin >> data;
@@ -50,9 +50,9 @@ class Linked_List
     void display_Linked_List(struct Node *a)
     {
         int counter = 0;
-        while(a!=NULL)
+        while (a != NULL)
         {
-            cout<<endl;
+            cout << endl;
             cout << "Element :" << a->data << endl;
             cout << "Address of its successive node :" << a->next << endl;
             cout << "Address of present " << counter << "th node is:" << a << endl;
@@ -60,16 +60,16 @@ class Linked_List
             a = a->next;
             counter++;
         }
-
     }
 };
-int main(){
+int main()
+{
     struct Node *head;
     Linked_List ll;
     int n;
     cout << "Enter Number of nodes you want in the Linked List" << endl;
     cin >> n;
-    head=ll.createLinkedlist(head,n);
+    head = ll.createLinkedlist(head, n);
     ll.display_Linked_List(head);
 
     return 0;
