@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
-/*Doubly Linked List:-means we can traverse in both the direction
+/*
+ Doubly Linked List:-means we can traverse in both the direction
  Insertion and Traversing
 */
 int data, count = 0;
