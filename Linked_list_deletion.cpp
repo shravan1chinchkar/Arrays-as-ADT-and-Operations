@@ -169,7 +169,7 @@ int main()
     struct Node *head;
     Linked_list ll;
     int n, ch;
-    cout << "Enter number of nodes you want in the Linked list :" << endl;
+    cout << "Enter number of nodes you want in the Singly Linked list :" << endl;
     cin >> n;
     if (n == 0)
     {

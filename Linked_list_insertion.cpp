@@ -138,7 +138,7 @@ int main()
     // Created object of class
     Linked_list ll;
     int n, ch1;
-    cout << "Enter Number of nodes you want in the Linked List" << endl;
+    cout << "Enter Number of nodes you want in the Singly Linked List" << endl;
     cin >> n;
     struct Node  *head = ll.createLinkedlist(n);
     ll.display_Linked_List(head);
