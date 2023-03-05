@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+//implementing stack using array
 class stack
 {
     int top;
