@@ -6,15 +6,14 @@ class stack
     int size;
     int *arr;
     public:
-    int *createStack(int *arr)
+    stack()//creates a stack
     {
         cout<<"Enter size of the Stack you want"<<endl;
         cin>>size;
-        top=-1;
-        arr=new int(size); 
-        return arr;
+        arr=new int[size]; 
+        top=-1;  
     }
-    int isEmpty()
+    int isEmpty()//checks whether the stack is empty or not
     {
         if(top==-1)
         {
@@ -27,7 +26,7 @@ class stack
             cout<<endl;
         }
     }
-    int isFull()
+    int isFull()//Checks whether the stack is full or not
     {
         if(top==size-1)
         {
@@ -40,25 +39,58 @@ class stack
             cout<<endl;
         }
     }
-    int *push(int *arr)
+    void push()//insert element in stack
     {
         if(isFull()==1)
         {
-            cout<<"Stack overflow"<<endl;
+            cout<<"Stack overflow,Cant insert the element"<<endl;
+            return;
         }
-        int element;
-        cout<<"Enter element to push into the stack"<<endl;
-        cin>>element;
-        top++;
-        arr[top]=element;
-        top++;
+        else
+        {
+            int element;
+            cout<<"Enter element to push into the stack"<<endl;
+            cin>>element;
+            top++;
+            arr[top]=element;
+        }
+    }
+    void pop()//delets elements in stack
+    {
+        if(isEmpty()==1)
+        {
+            cout<<"Stack underflow"<<endl;
+            return;
+        }
+        else
+        {
+            cout<<arr[top];
+            top--;
+        }
+    }
+    void peek()//returns the topmost element
+    {
+        if(isEmpty()==1)
+        {
+            cout<<"Stack is empty"<<endl;
+            return;
+        }
+        else
+        {
+            cout<<"Current topmost element in stack is: "<<arr[top]<<endl;
+        }
+    }
+    void displayStack()//display the stack
+    {
+        for(int i=0;i<=top;i++)
+        {
+            cout<<arr[i]<<" ";
+        }
     }
 };
 int main(){
     stack s1;
-    int *arr,ch;
-    arr=s1.createStack(arr);
-
+    int ch;
     while(true)
     {
         cout<<endl;
@@ -68,7 +100,8 @@ int main(){
         cout<<"3:push element "<<endl;
         cout<<"4:pop element "<<endl;
         cout<<"5:To see which is the top most element "<<endl;
-        cout<<"6:Display stacck "<<endl;
+        cout<<"6:Display stack "<<endl;
+        cout<<"7:Exit"<<endl;
         cout<<"************************MENU_ENDS*******************"<<endl;
         cout<<"Enter your choice: "<<endl;
         cin>>ch;
@@ -81,13 +114,19 @@ int main(){
                 cout<<s1.isFull();
                 break;
             case 3:
-                arr=s1.push(arr);
+                s1.push();
                 break;
             case 4:
+                s1.pop();
                 break;
             case 5:
+                s1.peek();
                 break;
             case 6:
+                s1.displayStack();
+                break;
+            case 7:
+                exit(0);
                 break;
             default:
                 cout<<"Please enter correct choice"<<endl;
