@@ -42,16 +42,16 @@ class stack
     }
     void push()//insert element in stack
     {
+        int element;
+            cout<<"Enter element to push into the stack"<<endl;
+            cin>>element;
         if(isFull()==1)
         {
-            cout<<"Stack overflow,Cant insert the element"<<endl;
+            cout<<"Stack overflow,Cant insert "<<element<<" into the stack"<<endl;
             return;
         }
         else
         {
-            int element;
-            cout<<"Enter element to push into the stack"<<endl;
-            cin>>element;
             top++;
             arr[top]=element;
         }
