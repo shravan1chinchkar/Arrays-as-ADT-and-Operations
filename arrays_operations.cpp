@@ -147,7 +147,6 @@ int main()
         cout << "1: Insertion of element at specified in array" << endl;
         cout << "2: Deletion  of element from array" << endl;
         cout << "3:Search an element in the array using Linear search" << endl;
-        cout << "3:Search an element in the array using Linear search" << endl;
         cout << "4:To search elements in sorted array using binary Search\n"
                 "(WARNING -->FOR THIS THE ARRAY MUST BE SORTED)"
              << endl;
