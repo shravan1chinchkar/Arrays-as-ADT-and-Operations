@@ -11,7 +11,7 @@ class stack
     {
         cout<<"Enter size of the Stack you want"<<endl;
         cin>>size;
-        arr=new int[size]; 
+        arr=new int[size];//creates an array in heap
         top=-1;  
     }
     int isEmpty()//checks whether the stack is empty or not
