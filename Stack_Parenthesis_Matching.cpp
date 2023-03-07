@@ -13,7 +13,7 @@ public:
     {
         size = str.length();
         top = -1;
-        arr = new char[size];
+        arr = new char[size];//an character array is created in heap
     }
     int isEmpty()
     {
