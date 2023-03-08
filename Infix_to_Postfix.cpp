@@ -1,7 +1,7 @@
 #include<iostream>
 #include<string.h>
 using namespace std;
-//Infix to postfix conversion using stack
+//Infix to postfix conversion using stack(some improvements can be done in the program)
 class Stack1
 {
     int top,i,j,size1,size2;
