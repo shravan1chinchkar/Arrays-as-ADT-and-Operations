@@ -59,7 +59,7 @@ public:
         ch=arr[top];
         top--;
         return ch;
-    }//             (         )
+    }
     int match (char ch1,char ch)//checks whether the char in string and the character which is poped are similar or not
     {
         if(ch1=='(' && ch==')')
