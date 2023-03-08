@@ -47,7 +47,7 @@ public:
         {
             top++;
             arr[top] = c;
-            cout << "pushed : " << arr[top] << endl;
+            // cout << "pushed : " << arr[top] << endl;
         }
     }
     void pop()
@@ -58,26 +58,26 @@ public:
         }
         else
         {
-            char ch = arr[top];
-            cout << "popped : " << ch << endl;
             top--;
         }
     }
-    void paraenthisMatch(string str)
+    int paraenthisMatch(string str)
     {
-        int flag=0;
+        
+         char ch;
         for (int i = 0; i <= size; i++)
         {
             if (str[i] == '(')
             {
-                char ch = '(';
+                ch = str[i];
                 push(ch);
             }
             else if (str[i] == ')')
             {
-                if (isEmpty())
+                if (isEmpty()==1)
                 {
-                    flag=1;
+                    cout<<"Stack underFlow"<<endl;
+                    return 0;            
                 }
                 else
                 {
@@ -85,12 +85,13 @@ public:
                 }
             }
         }
-        if (flag==1)
+        if(isEmpty()==1)
         {
-            cout<<"The Parenthesis is not matching"<<endl;
+            return 1;
         }
-        else{
-            cout<<"Parenthesis are matching"<<endl;
+        else
+        {
+            return 0;
         }
     }
 };
@@ -98,6 +99,13 @@ int main()
 {
     string str = "7*4(10-9)";
     stack1 s(str);
-    s.paraenthisMatch(str);
+    if(s.paraenthisMatch(str)==1)
+    {
+        cout<<"Parenthesis are balanced"<<endl;
+    }
+    else
+    {
+        cout<<"Parenthesis are not balanced"<<endl;
+    }
     return 0;
 }

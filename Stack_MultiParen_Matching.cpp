@@ -49,8 +49,9 @@ public:
             arr[top] = c;
         }
     }
-    char pop(char ch)//delets the topmost character
+    char pop()//delets the topmost character
     {
+        char ch;
         if (isEmpty() == 1)
         {
             cout << "Stack underFlow" << endl;
@@ -58,7 +59,7 @@ public:
         ch=arr[top];
         top--;
         return ch;
-    }
+    }//             (         )
     int match (char ch1,char ch)//checks whether the char in string and the character which is poped are similar or not
     {
         if(ch1=='(' && ch==')')
@@ -91,28 +92,36 @@ public:
             }
             else if (str[i] == ')' or str[i]==']' or str[i]=='}')
             {
-                if (isEmpty())
+                if (isEmpty()==1)
                 {
                     cout<<"Stack empty"<<endl;
+                    return 1;
                 }
                 else
                 {
-                    ch=str[i];
-                    ch=pop(ch);
-                    if(!match(ch,str[i]))
+                    ch=pop();
+                    if(match(ch,str[i])==0)
                     {
                         return 0;
                     }
                 }
             }
         }
+        if(isEmpty())//at last checks whether the stack is empty or not
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
     }
 };
 int main()
 {
-    string str = "((8)(*--$$9))";//string which is given for testing
+    string str = "[((8)(*--$$9)})]";//string which is given for testing
     stack1 s(str);
-    if(s.paraenthisMatch(str))
+    if(s.paraenthisMatch(str)==1)
     {
         cout<<"The Parenthesis are balanced"<<endl;
     }
