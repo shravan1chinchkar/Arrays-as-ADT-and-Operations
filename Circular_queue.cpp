@@ -15,12 +15,11 @@ class Circular_Queue
     {
         size=n;
         arr=new int[size];//allocated queue in heap
-        front=0;
-        rear=0;
+        front=rear=-1;
     }
     int isEmpty()//checks whether queue is empty or not
     {
-        if(front==rear)//empty condition is same in linear and circular queue
+        if(front==-1 && rear==-1)//empty condition is same in linear and circular queue
         {
             return 1;
         }
@@ -28,7 +27,7 @@ class Circular_Queue
     }
     int isFull()//checks whether Circular queue is full or not
     {
-        if((rear+1)%size==front)
+        if((front==0 && rear==size-1) or (rear==(front-1)%(size-1)))
         {
             return 1;
         }
@@ -40,21 +39,37 @@ class Circular_Queue
         if(isFull()==1)
         {
             cout<<"Queue overflow"<<endl;
+            return;
         }
-        else if(rear=front=size-1)
+        else if(front==-1)//enqueing 1st element into queue
+        {
+            front=rear=0;
+            cout<<"Enter element you want to enqueue into the queue"<<endl;
+            cin>>element;
+            arr[rear]=element;
+        }
+        else if(rear==size-1 && front!=0)
+        {
+            rear=0;//to maintain cyclic nature
+            cout<<"Enter element you want to enqueue into the queue"<<endl;
+            cin>>element;
+            arr[rear]=element;
+        }
+        else//normal enquing into the queue
         {
             cout<<"Enter element you want to enqueue into the queue"<<endl;
             cin>>element;
-            rear=(rear+1)%size;//0
-            arr[rear]=element;//circular increment in rear and then inserting into the queue
-
+            rear++;
+            arr[rear]=element;
         }
-        else{
-            cout<<"Enter element you want to enqueue into the queue"<<endl;
-            cin>>element;
-            rear=(rear+1)%size;//0
-            arr[rear]=element;//circular increment in rear and then inserting into the queue
-        }
+    }
+    int rearPosition()
+    {
+        return rear;
+    }
+    int frontPosition()
+    {
+        return front;
     }
     void dequeue()//delets the element from the queue
     {
@@ -64,11 +79,21 @@ class Circular_Queue
             cout<<"Queue underflow"<<endl;
             return;
         }
+        else if(front==rear)//queue contains only one element
+        {
+            cout<<"Dequeued :"<<arr[front];
+            front=rear=-1;
+        }
+        else if(front==size-1)//front is pointing to last index
+        {
+            cout<<"Dequeued: "<<arr[front];
+            front=0;//to maintain cyclic nature
+        }
         else
         {
-            front=(front+1)%size;
             ans=arr[front];//circular increment in front and then deleting the element from queue
             cout<<"Dequeued: "<<ans<<endl;
+            front++;       
         }
     }
     void display()//displaying the queue
@@ -80,31 +105,30 @@ class Circular_Queue
         }
         else if(front==0)
         {
-            for(int i=1;i<=rear;i++)
+            for(int i=0;i<=rear;i++)//prints the queue linearly till the end
             {
                 cout<<arr[i]<<" ";
             }
         }
-        else if(front!=0 && rear>front)
+        else if(front!=0 or rear>front)
         {
-            for(int i=front+1;i<=rear;i++)
+            for(int i=front;i<=rear;i++)
             {
                 cout<<arr[i]<<" ";
             }
-        } 
+        } // 0<1
         else if(rear<front)
         {
-            int i=front+1;
-            while (i!=front)
+            int i=front;
+            do
             {
-                cout<<arr[i]<<" ";
-                i=(i+1)%size;
-            } 
+                cout<<arr[i]<<" "; 
+            } while (i!=front);    
         } 
     }
 };
 int main(){
-    int n,ch,ans1,ans2;
+    int n,ch,ans1,ans2,ans3,ans4;
     cout<<"Enter size of the queue you want"<<endl;
     cin>>n;
     cout<<"That means now you can insert only "<<(n-1)<<" elements in the Circular queue"<<endl;
@@ -118,7 +142,8 @@ int main(){
         cout<<"3:enqueue the element"<<endl;
         cout<<"4:dequeue the element"<<endl;
         cout<<"5:Display the Circular queue"<<endl;
-        cout<<"6:exit"<<endl;
+        cout<<"6:Show rear and front position"<<endl;
+        cout<<"7:exit"<<endl;
         cout<<"*********************************MENU_ENDS************************"<<endl;
         cout<<"Enter your choice"<<endl;
         cin>>ch;
@@ -142,6 +167,12 @@ int main(){
             q.display();
             break;
         case 6:
+            ans3=q.rearPosition();
+            cout<<"current rear position: "<<ans3<<endl;
+            ans4=q.frontPosition();
+            cout<<"current front position: "<<ans4<<endl;
+            break;
+        case 7:
             exit(0);
             break;
         default:
