@@ -109,20 +109,22 @@ class Circular_Queue
             {
                 cout<<arr[i]<<" ";
             }
-        }
-        else if(front!=0 or rear>front)
+        } 
+        else if(front!=0 and front<=rear)
         {
             for(int i=front;i<=rear;i++)
             {
                 cout<<arr[i]<<" ";
             }
-        } // 0<1
-        else if(rear<front)
+        }
+        else if(front!=0 and rear<front)
         {
+            cout<<"Hey"<<endl;
             int i=front;
             do
             {
                 cout<<arr[i]<<" "; 
+                i= ((i+1)%size);
             } while (i!=front);    
         } 
     }
@@ -131,7 +133,6 @@ int main(){
     int n,ch,ans1,ans2,ans3,ans4;
     cout<<"Enter size of the queue you want"<<endl;
     cin>>n;
-    cout<<"That means now you can insert only "<<(n-1)<<" elements in the Circular queue"<<endl;
     Circular_Queue q(n);
     while (true)
     {
