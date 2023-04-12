@@ -6,7 +6,7 @@ int count = 0, data;
 struct Node
 {
     int data;
-    struct Node *next;
+    Node *next;
 };
 class Linked_List
 {

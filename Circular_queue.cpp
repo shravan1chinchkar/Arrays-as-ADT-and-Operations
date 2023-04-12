@@ -119,7 +119,6 @@ class Circular_Queue
         }
         else if(front!=0 and rear<front)
         {
-            cout<<"Hey"<<endl;
             int i=front;
             do
             {
