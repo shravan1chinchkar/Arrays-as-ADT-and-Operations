@@ -9,19 +9,13 @@ class Node
     int nodecount = 1;
     int data;
     Node *next;
-    Node *front;
-    Node *rear;
+    Node *front=NULL;
+    Node *rear=NULL;
 
 public:
-    Node()//initialize value NULL for rear and front
-    {
-        rear = NULL;
-        front = NULL;
-    }
-
     int isEmpty()
     {
-        if (front == NULL && rear == NULL)
+        if (front==NULL && rear==NULL)
         {
             return 1;
         }
@@ -70,17 +64,19 @@ public:
 
     void display_queue()
     {
-        if ((front == NULL && rear == NULL) or (front==rear))
+        if ((isEmpty()==1) || (front==NULL))
         {
-            cout << "Queue underflow" << endl;
-            return;
+            cout << "Queue empty" << endl;
         }
-        Node *temp1 = front;
-        while (temp1 != NULL)
+        else
         {
-            cout << "Element:" << temp1->data << endl;
-            temp1 = temp1->next;
-        }
+            Node *temp1 = front;
+            while (temp1 != NULL)
+            {
+                cout << "Element:" << temp1->data << endl;
+                temp1 = temp1->next;
+            }
+        } 
     }
 };
 
