@@ -1,0 +1,6 @@
+Double Ended Queue(DE QUEUE)
+insertion can be done from rear+front
+deletion can be done from front+rear
+Types of DE queue 
+1]Restricted input DE queue or Input Restricted DE queue:- Insertion from front is not allowed(deletion is allowed from both end) 
+2]Restricted output DE queue or Output Restricted DE queue:- Deletion from rear is not allowed(insertion is allowed from both end)
