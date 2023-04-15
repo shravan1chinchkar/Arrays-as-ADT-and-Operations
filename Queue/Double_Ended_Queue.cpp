@@ -23,7 +23,7 @@ class DEqueue
     }
     int isFull()//checks whether Circular queue is full or not
     {
-        if((front==0 && rear==size-1) or (rear==(front-1)%(size-1)))
+        if((front==0 && rear==size-1) or (front!=0 && rear==(front-1)%(size-1)))
         {
             return 1;
         }
@@ -43,7 +43,7 @@ class DEqueue
         {
             cout<<"Queue overflow"<<endl;
         }
-        else if(front ==-1 && rear==-1)
+        else if(isEmpty()==1)
         {
             front=rear=0;
         }
@@ -65,7 +65,7 @@ class DEqueue
         {
             cout<<"Queue overflow"<<endl;
         }
-        else if(front ==-1 && rear==-1)
+        else if(isEmpty()==1)
         {
             front =rear=0;
         }

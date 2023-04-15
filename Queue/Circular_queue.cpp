@@ -44,20 +44,20 @@ class Circular_Queue
         else if(front==-1)//enqueing 1st element into queue
         {
             front=rear=0;
-            cout<<"Enter element you want to enqueue into the queue"<<endl;
+            cout<<"Enter element you want to enqueue into the queue: ";
             cin>>element;
             arr[rear]=element;
         }
         else if(rear==size-1 && front!=0)
         {
             rear=0;//to maintain cyclic nature
-            cout<<"Enter element you want to enqueue into the queue"<<endl;
+            cout<<"Enter element you want to enqueue into the queue: ";
             cin>>element;
             arr[rear]=element;
         }
         else//normal enquing into the queue
         {
-            cout<<"Enter element you want to enqueue into the queue"<<endl;
+            cout<<"Enter element you want to enqueue into the queue: ";
             cin>>element;
             rear++;
             arr[rear]=element;
@@ -130,7 +130,7 @@ class Circular_Queue
 };
 int main(){
     int n,ch,ans1,ans2,ans3,ans4;
-    cout<<"Enter size of the queue you want"<<endl;
+    cout<<"Enter size of the queue you want: ";
     cin>>n;
     Circular_Queue q(n);
     while (true)
@@ -145,7 +145,7 @@ int main(){
         cout<<"6:Show rear and front position"<<endl;
         cout<<"7:exit"<<endl;
         cout<<"*********************************MENU_ENDS************************"<<endl;
-        cout<<"Enter your choice"<<endl;
+        cout<<"Enter your choice: ";
         cin>>ch;
         switch (ch)
         {
