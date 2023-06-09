@@ -49,25 +49,23 @@ public:
         else
         {
             cout << arr[1] << " Deleted" << endl; // Display the node which is gonna be deleted
-            arr[1] = arr[size];                   // replace the root node with the last node
-            size = size - 1;                      // decrease the size of the array as one node is been deleted
+            arr[1] = arr[size];                   // replace the root node with the last node (Step 1)
+            size = size - 1;                      // decrease the size of the array as one node is been deleted (Step 2)
             cout << "Size After deletion: " << size << endl;
             int i = 1; // since root is always at 1st index so i=1
-            // place the root at correct position
-            while (i < size) // 1<3
+            // place the root at correct position (Step 3)
+            while (i < size) 
             {
-                int leftNode = 2 * i;      // 2
-                int rightNode = 2 * i + 1; // 3
-                //    2<3               arr[1]<arr[2]
+                int leftNode = 2 * i;      
+                int rightNode = 2 * i + 1; 
                 if (leftNode <= size && arr[i] < arr[leftNode])
                 {
                     cout << "In if" << endl;
-                    int temp = arr[i];      // temp=50
-                    arr[i] = arr[leftNode]; // arr[i]=52
-                    arr[leftNode] = temp;   // arr[leftNode]=50
-                    // i = leftNode;//i=2
+                    int temp = arr[i];      
+                    arr[i] = arr[leftNode]; 
+                    arr[leftNode] = temp;   
+                    i = leftNode;
                 }
-                //     5<4
                 else if (rightNode <= size && arr[i] < arr[rightNode])
                 {
                     cout << "IN else if" << endl;
